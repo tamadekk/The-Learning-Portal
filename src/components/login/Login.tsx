@@ -1,4 +1,7 @@
 import React from 'react';
+
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import Input from 'src/common/Input/Input';
 import Button from 'src/common/Button/Button';
 
@@ -8,13 +11,14 @@ import padlockIcon from '../../assets/Login/padlockIcon.svg';
 const Login = () => {
 	return (
 		<div className='min-h-screen flex items-center justify-center'>
-			<div className='flex flex-col items-center gap-2'>
+			<div className='flex flex-col items-center gap-5'>
 				<p className='text-3xl text-headerTextColor font-montserrat font-semibold'>
 					Sign in
 				</p>
 				<p className='text-xl text-nonPrimeText font-montserrat'>
 					Welcome back
 				</p>
+
 				<form className='flex flex-col items-center gap-3'>
 					<div className='flex flex-col'>
 						<label className='text-sm font-semibold font-poppins'>
@@ -51,6 +55,7 @@ const Login = () => {
 						</span>
 					</p>
 				</form>
+				<ReCAPTCHA sitekey='6LetHOgpAAAAAOqNilFEiqDLkfPNTUYmyAtitpqN' />
 			</div>
 		</div>
 	);
