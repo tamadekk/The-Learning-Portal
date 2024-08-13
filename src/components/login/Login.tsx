@@ -78,7 +78,6 @@ const Login = () => {
 							onChange={handleInputChange}
 						/>
 					</div>
-					<ReCAPTCHA sitekey={reCAPTCHAkey} onChange={handleCaptchaChange} />
 					<Button message='Sign in' />
 					<p className='text-xs text-nonPrimeText font-poppins font-bold'>OR</p>
 					<p className='text-sm text-nonPrimeText font-poppins'>
@@ -87,6 +86,7 @@ const Login = () => {
 							Sign up
 						</span>
 					</p>
+					<ReCAPTCHA sitekey={reCAPTCHAkey} onChange={handleCaptchaChange} />
 				</form>
 			</div>
 		</div>
