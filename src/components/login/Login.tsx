@@ -25,10 +25,10 @@ const Login = () => {
 	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setForm((prev) => ({
-			...prev,
+		setForm({
+			...form,
 			[e.target.name]: e.target.value,
-		}));
+		});
 	};
 
 	const handleCaptchaChange = (value: string | null) => {
