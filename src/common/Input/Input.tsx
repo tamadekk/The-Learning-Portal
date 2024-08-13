@@ -7,6 +7,7 @@ interface Props {
 	id: string;
 	placeHolder: string;
 	required: boolean;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = (props: Props) => {
@@ -21,6 +22,7 @@ const Input = (props: Props) => {
 				type={props.type}
 				id={props.id}
 				placeholder={props.placeHolder}
+				onChange={props.onChange}
 			/>
 		</div>
 	);
