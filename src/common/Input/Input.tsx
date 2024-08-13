@@ -6,7 +6,7 @@ interface Props {
 	type: string;
 	id: string;
 	placeHolder: string;
-	required: boolean;
+	required?: boolean;
 	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
