@@ -23,6 +23,7 @@ const Input = (props: Props) => {
 				id={props.id}
 				placeholder={props.placeHolder}
 				onChange={props.onChange}
+				required={props.required}
 			/>
 		</div>
 	);
