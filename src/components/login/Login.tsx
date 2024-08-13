@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import ReCAPTCHA from 'react-google-recaptcha';
+import reCAPTCHAkey from '../../reCAPTCHAkey';
 
 import Input from 'src/common/Input/Input';
 import Button from 'src/common/Button/Button';
@@ -77,10 +78,7 @@ const Login = () => {
 							onChange={handleInputChange}
 						/>
 					</div>
-					<ReCAPTCHA
-						sitekey='6LetHOgpAAAAAOqNilFEiqDLkfPNTUYmyAtitpqN'
-						onChange={handleCaptchaChange}
-					/>
+					<ReCAPTCHA sitekey={reCAPTCHAkey} onChange={handleCaptchaChange} />
 					<Button message='Sign in' />
 					<p className='text-xs text-nonPrimeText font-poppins font-bold'>OR</p>
 					<p className='text-sm text-nonPrimeText font-poppins'>
