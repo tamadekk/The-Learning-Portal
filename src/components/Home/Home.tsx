@@ -2,8 +2,7 @@ import React from 'react';
 
 import Button from 'src/common/Button/Button';
 
-import TBSVideoPic from '../../assets/Home/TBS-Video.png';
-import joinUsBGPic from '../../assets/Home/joinUsBG.png';
+import { TBSVideoPic, joinUsBGPic } from '../../assets/index';
 
 export const Home = () => {
 	return (
