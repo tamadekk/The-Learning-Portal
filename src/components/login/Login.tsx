@@ -8,6 +8,8 @@ import Button from 'src/common/Button/Button';
 
 import userIcon from '../../assets/Login/userIcon.svg';
 import padlockIcon from '../../assets/Login/padlockIcon.svg';
+import eyeOn from '../../assets/Login/eyeIcon.svg';
+import eyeOff from '../../assets/Login/eyeOffIcon.svg';
 
 const Login = () => {
 	const [form, setForm] = useState({
@@ -15,14 +17,20 @@ const Login = () => {
 		password: '',
 	});
 	const [captchaCompleted, setCaptchaCompleted] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [isPasswordVisible, setPasswordVisible] = useState(false);
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		if (!captchaCompleted) {
 			alert('Please complete the captcha before submitting!');
 			return;
 		}
-		console.log('Form submitted:', form);
+		if (!(form.username && form.password)) console.log('Error!');
+		setIsSubmitting(true);
+		// TODO: submit to server
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		setIsSubmitting(false);
 	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +38,10 @@ const Login = () => {
 			...form,
 			[e.target.name]: e.target.value,
 		});
+	};
+	const handleToggle = () => {
+		setPasswordVisible(!isPasswordVisible);
+		console.log(isPasswordVisible);
 	};
 
 	const handleCaptchaChange = (value: string | null) => {
@@ -71,14 +83,24 @@ const Login = () => {
 						<Input
 							icon={padlockIcon}
 							name='password'
-							type='password'
+							type={isPasswordVisible ? 'text' : 'password'}
 							id='password'
 							placeHolder='Enter password'
 							required
 							onChange={handleInputChange}
-						/>
+						>
+							<div className='absolute right-3 top-3'>
+								<button type='button' onClick={handleToggle}>
+									<img
+										src={isPasswordVisible ? eyeOn : eyeOff}
+										className='w-4'
+										alt='Toggle visibility'
+									/>
+								</button>
+							</div>
+						</Input>
 					</div>
-					<Button message='Sign in' />
+					<Button message='Sign in' disabled={isSubmitting} />
 					<p className='text-xs text-nonPrimeText font-poppins font-bold'>OR</p>
 					<p className='text-sm text-nonPrimeText font-poppins'>
 						Don't have an account?{' '}
