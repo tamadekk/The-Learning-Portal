@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderLogo from '../../assets/Header/HeaderLogo.png';
+import { headerLogo } from '../../assets/index';
 import Button from 'src/common/Button/Button';
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
 				<div className='flex items-center justify-between font-poppins gap-2'>
 					<div className='flex items-center'>
 						<img
-							src={HeaderLogo}
+							src={headerLogo}
 							alt='The learning portal logo'
 							className='mr-4'
 						/>
