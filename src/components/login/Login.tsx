@@ -6,10 +6,7 @@ import reCAPTCHAkey from '../../reCAPTCHAkey';
 import Input from 'src/common/Input/Input';
 import Button from 'src/common/Button/Button';
 
-import userIcon from '../../assets/Login/userIcon.svg';
-import padlockIcon from '../../assets/Login/padlockIcon.svg';
-import eyeOn from '../../assets/Login/eyeIcon.svg';
-import eyeOff from '../../assets/Login/eyeOffIcon.svg';
+import { userIcon, padlockIcon, eyeOn, eyeOff } from '../../assets/index';
 
 const Login = () => {
 	const [form, setForm] = useState({
