@@ -1,30 +1,40 @@
 import React from 'react';
 
-interface Props {
+interface InputProps {
 	icon?: string;
-	name: string;
 	type: string;
+	name: string;
 	id: string;
 	placeHolder: string;
+	value?: string;
 	required?: boolean;
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	children?: React.ReactNode;
 }
 
-const Input = (props: Props) => {
+const Input = (props: InputProps) => {
 	return (
-		<div className='relative'>
-			<div className='absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none'>
-				{props.icon && <img src={props.icon} alt='icon' className='w-4 h-4' />}
-			</div>
+		<div className='relative flex items-center'>
+			{props.icon && (
+				<img
+					src={props.icon}
+					alt={`${props.name} icon`}
+					className='absolute left-3 w-5 h-5'
+				/> // TODO : don't use layout style for reuseable elements
+			)}
 			<input
-				className='w-full ps-10 p-2.5 bg-bgInput rounded-md font-poppins font-extralight text-sm'
-				name={props.name}
 				type={props.type}
+				name={props.name}
 				id={props.id}
 				placeholder={props.placeHolder}
-				onChange={props.onChange}
+				value={props.value}
 				required={props.required}
+				onChange={props.onChange}
+				className={
+					'w-full ps-10 p-2.5 bg-bgInput rounded-md font-poppins font-extralight text-sm'
+				}
 			/>
+			{props.children}
 		</div>
 	);
 };
