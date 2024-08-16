@@ -97,7 +97,12 @@ const Login = () => {
 							</div>
 						</Input>
 					</div>
-					<Button message='Sign in' disabled={isSubmitting} />
+					<Button
+						message='Sign in'
+						disabled={isSubmitting}
+						size='large'
+						variant='primeButton'
+					/>
 					<p className='text-xs text-nonPrimeText font-poppins font-bold'>OR</p>
 					<p className='text-sm text-nonPrimeText font-poppins'>
 						Don't have an account?{' '}
