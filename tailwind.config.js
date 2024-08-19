@@ -21,6 +21,8 @@ module.exports = {
 				buttonImportantPressed: '#B90B11FF',
 			},
 			fontFamily: {
+				body: 'Montserrat',
+				h2: 'Montserrat',
 				montserrat: 'Montserrat',
 				poppins: 'Poppins',
 			},
