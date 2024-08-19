@@ -19,7 +19,7 @@ const Input = (props: InputProps) => {
 				<img
 					src={props.icon}
 					alt={`${props.name} icon`}
-					className='absolute left-3 w-5 h-5'
+					className='absolute left-3'
 				/> // TODO : don't use layout style for reuseable elements
 			)}
 			<input
@@ -30,9 +30,7 @@ const Input = (props: InputProps) => {
 				value={props.value}
 				required={props.required}
 				onChange={props.onChange}
-				className={
-					'w-full ps-10 p-2.5 bg-bgInput rounded-md font-poppins font-extralight text-sm'
-				}
+				className={'w-full ps-10 p-2.5 bg-bgInput rounded-md  text-sm'}
 			/>
 			{props.children}
 		</div>
