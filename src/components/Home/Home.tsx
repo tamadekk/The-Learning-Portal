@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'src/common/Button/Button';
 
-import { TBSVideoPic, joinUsBGPic } from '../../assets/index';
+import { TBSVideoPic, joinUsBGPic } from 'src/assets/index';
 
 export const Home = () => {
 	return (
