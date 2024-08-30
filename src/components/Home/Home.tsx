@@ -3,6 +3,7 @@ import React from 'react';
 import Button from 'src/common/Button/Button';
 
 import { TBSVideoPic, joinUsBGPic } from 'src/assets/index';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
 	return (
@@ -43,7 +44,9 @@ export const Home = () => {
 							ex nulla ea adipisicing sit consequat enim elit cupidatat o
 						</p>
 					</div>
-					<Button message='Join us' />
+					<Link to='/join-us'>
+						<Button message='Join us' />
+					</Link>
 				</div>
 			</div>
 		</>

@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
+import JoinUs from './components/JoinUs/JoinUs';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path='*' element={<Navigate to='/' />} />
 				<Route path='/' element={<Home />} />
 				<Route path='/login' element={<Login />} />
+				<Route path='/join-us' element={<JoinUs />} />
 			</Routes>
 			<Footer />
 		</>

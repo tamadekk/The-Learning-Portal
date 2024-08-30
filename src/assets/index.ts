@@ -12,6 +12,8 @@ import youtubeIcon from './Footer/youtubeIcon.svg';
 import facebookIcon from './Footer/facebookIcon.svg';
 import hamburgerIcon from './Header/hamburgerIcon.svg';
 import closeIcon from './Header/closeIcon.svg';
+import peopleGroup1Img from './JoinUs/group-of-people-1.png';
+import peopleGroup2Img from './JoinUs/group-of-people-2.jpeg';
 
 export {
 	logo,
@@ -28,4 +30,6 @@ export {
 	facebookIcon,
 	hamburgerIcon,
 	closeIcon,
+	peopleGroup1Img,
+	peopleGroup2Img,
 };
