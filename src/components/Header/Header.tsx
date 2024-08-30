@@ -38,7 +38,7 @@ const Header = () => {
 				{isMenuOpen && (
 					<div className='absolute top-0 left-0 pl-4 pt-4 max-w-3/5 h-dvh border-r border-b bg-white sm:hidden'>
 						<div className='flex flex-col gap-4'>
-							<div className='flex flex-row gap-2'>
+							<div className='flex flex-row gap-16'>
 								<ProfileCard />
 								<Button onClick={handleClick} variant='icon'>
 									<img src={closeIcon} alt='Menu icon' />
