@@ -28,6 +28,7 @@ const NewsLetter = () => {
 					icon={emailIcon}
 					onChange={handleChange}
 					required
+					variant='withIcon'
 				/>
 				<Button message='Subscribe' onClick={handleClick} />
 			</div>
