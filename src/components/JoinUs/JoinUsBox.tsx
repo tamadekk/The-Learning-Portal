@@ -20,7 +20,7 @@ const JoinUsBox = (props: JoinUsBoxProps) => {
 						Do consectetur proident proident id eiusmod deserunt consequat
 						pariatur ad ex velit do Lorem reprehenderit.
 					</p>
-					<Link to='/login'>
+					<Link to='/registration'>
 						<Button message='Join us' />
 					</Link>
 				</div>
