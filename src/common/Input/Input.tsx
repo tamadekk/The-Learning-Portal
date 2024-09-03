@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
-interface InputProps {
+import { VariantProps, cva } from 'class-variance-authority';
+import { cn } from 'src/lib/utils';
+
+const inputVariants = cva(
+	'ps-10 p-2.5 pl-3 bg-bgInput rounded-md  text-sm outline-none focus:border-white',
+	{
+		variants: {
+			variant: {
+				default: '',
+				withIcon: 'pl-10',
+				transparent: 'bg-transparent border',
+			},
+			size: {
+				default: 'w-full',
+			},
+		},
+		defaultVariants: {
+			variant: 'default',
+			size: 'default',
+		},
+	}
+);
+
+interface InputProps
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>,
+		VariantProps<typeof inputVariants> {
 	icon?: string;
 	type: string;
 	name: string;
@@ -12,7 +37,7 @@ interface InputProps {
 	children?: React.ReactNode;
 }
 
-const Input = (props: InputProps) => {
+const Input = ({ className, size, variant, ...props }: InputProps) => {
 	return (
 		<div className='relative flex items-center'>
 			{props.icon && (
@@ -30,7 +55,7 @@ const Input = (props: InputProps) => {
 				value={props.value}
 				required={props.required}
 				onChange={props.onChange}
-				className={'w-full ps-10 p-2.5 bg-bgInput rounded-md  text-sm'}
+				className={cn(inputVariants({ variant, size, className }))}
 			/>
 			{props.children}
 		</div>

@@ -71,6 +71,7 @@ const Login = () => {
 							placeHolder='Enter email'
 							required
 							onChange={handleInputChange}
+							variant='withIcon'
 						/>
 					</div>
 					<div className='flex flex-col'>
@@ -85,6 +86,7 @@ const Login = () => {
 							placeHolder='Enter password'
 							required
 							onChange={handleInputChange}
+							variant='withIcon'
 						>
 							<div className='absolute right-3 top-3'>
 								<button type='button' onClick={handleToggle}>
