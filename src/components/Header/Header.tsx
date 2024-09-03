@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { closeIcon, hamburgerIcon } from 'src/assets';
+import { Link } from 'react-router-dom';
+
 import Logo from 'src/common/Logo/Logo';
 import ProfileCard from './ProfileCard/ProfileCard';
+import Button from 'src/common/Button/Button';
+import NavBar from './NavBar';
+
+import { closeIcon, hamburgerIcon } from 'src/assets';
 import {
 	desktopNavLinks,
 	mobileNavLinks,
 } from 'src/constants/Header/constants';
-import Button from 'src/common/Button/Button';
-import NavBar from './NavBar';
-
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const handleClick = () => {
@@ -30,9 +32,11 @@ const Header = () => {
 				</div>
 				<div className='hidden sm:flex sm:items-center sm:absolute right-4 space-x-4'>
 					<a className='text-purpleText' href='/login'>
-						Sign up
+						Sign in
 					</a>
-					<Button message='Sign in' />
+					<Link to='/join-us'>
+						<Button message='Join us' />
+					</Link>
 				</div>
 
 				{isMenuOpen && (
