@@ -12,6 +12,7 @@ const buttonVariants = cva('text-white rounded-md disabled:opacity-40', {
 				'bg-buttonSecondary hover:bg-buttonSecondaryHover focus:bg-buttonSecondaryPressed',
 			importantButton:
 				'bg-buttonImportant hover:bg-buttonImportantHover focus:bg-buttonImportantPressed',
+			icon: '',
 		},
 		size: {
 			default: 'w-24 h-10',
@@ -28,6 +29,7 @@ interface ButtonProps
 	extends ButtonHTMLAttributes<HTMLButtonElement>,
 		VariantProps<typeof buttonVariants> {
 	message?: string;
+	children?: React.ReactNode;
 }
 
 const Button = ({ className, size, variant, ...props }: ButtonProps) => {
@@ -37,6 +39,7 @@ const Button = ({ className, size, variant, ...props }: ButtonProps) => {
 			disabled={props.disabled}
 			onClick={props.onClick}
 		>
+			{props.children}
 			{props.message}
 		</button>
 	);

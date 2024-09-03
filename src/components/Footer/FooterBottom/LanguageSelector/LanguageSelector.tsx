@@ -9,8 +9,8 @@ const LanguageSelector = () => {
 				id='language-select'
 				className='bg-transparent border border-gray-300 p-2 rounded-md text-sm'
 			>
-				{LANGUAGE_OPTIONS.map((element) => (
-					<option>{element}</option>
+				{LANGUAGE_OPTIONS.map((element, index) => (
+					<option key={index}>{element}</option>
 				))}
 			</select>
 		</div>
