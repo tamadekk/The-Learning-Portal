@@ -10,7 +10,7 @@ const inputVariants = cva(
 			variant: {
 				default: '',
 				withIcon: 'bg-neutral-200 pl-10',
-				withIconTransparent: 'bg-transparent pl-10',
+				withIconTransparent: 'bg-transparent pl-10 border',
 				transparent: 'focus:bg-neutral-150  border',
 			},
 			size: {
