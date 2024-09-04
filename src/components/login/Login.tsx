@@ -48,12 +48,10 @@ const Login = () => {
 	return (
 		<div className='min-h-screen flex items-center justify-center'>
 			<div className='flex flex-col items-center gap-5'>
-				<p className='text-3xl text-headerTextColor font-montserrat font-semibold'>
+				<p className='text-3xl text-neutral-900 font-montserrat font-semibold'>
 					Sign in
 				</p>
-				<p className='text-xl text-nonPrimeText font-montserrat'>
-					Welcome back
-				</p>
+				<p className='text-xl text-neutral-500 font-montserrat'>Welcome back</p>
 
 				<form
 					className='flex flex-col items-center gap-3'
@@ -105,8 +103,8 @@ const Login = () => {
 						size='large'
 						variant='primeButton'
 					/>
-					<p className='text-xs text-nonPrimeText font-poppins font-bold'>OR</p>
-					<p className='text-sm text-nonPrimeText font-poppins'>
+					<p className='text-xs text-neutral-500 font-poppins font-bold'>OR</p>
+					<p className='text-sm text-neutral-500 font-poppins'>
 						Don't have an account?{' '}
 						<span className='text-indigo-700 font-bold cursor-pointer'>
 							Sign up

@@ -10,13 +10,13 @@ export const Home = () => {
 		<>
 			<div className='flex flex-col items-center mt-24 gap-14'>
 				<div className=''>
-					<h1 className='text-center text-5xl text-headerTextColor font-montserrat font-semibold'>
+					<h1 className='text-center text-5xl text-neutral-900 font-montserrat font-semibold'>
 						Let's start learning
 					</h1>
 				</div>
 
 				<div className='text-center w-2/5'>
-					<p className='text-xl text-nonPrimeText font-montserrat leading-relaxed'>
+					<p className='text-xl text-neutral-500 font-montserrat leading-relaxed'>
 						Welcome to Learn Platform - where every day is a day to learn. Dive
 						into the vast ocean of knowledge and empower yourself with the tools
 						for a successful tomorrow. Happy learning!

@@ -46,7 +46,7 @@ const Registration = () => {
 					<h1 className='text-left text-5xl text-headerTextColo font-semibold'>
 						Registration
 					</h1>
-					<p className='text-left text-nonPrimeText'>{testRole}</p>
+					<p className='text-left text-neutral-500'>{testRole}</p>
 				</div>
 				<div className='flex min-h-fit gap-24'>
 					<img

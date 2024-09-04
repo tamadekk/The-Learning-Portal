@@ -8,7 +8,7 @@ const JoinUs = () => {
 	return (
 		<>
 			<header className='p-10'>
-				<h1 className='text-headerTextColor text-5xl font-bold text-center'>
+				<h1 className='text-neutral-900 text-5xl font-bold text-center'>
 					Join Us
 				</h1>
 				<JoinUsBox role='Trainer' image={peopleGroup1Img} />

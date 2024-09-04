@@ -6,12 +6,10 @@ import { cn } from 'src/lib/utils';
 const buttonVariants = cva('text-white rounded-md disabled:opacity-40', {
 	variants: {
 		variant: {
-			primeButton:
-				'bg-buttonPrime hover:bg-buttonPrimeHover focus:bg-buttonPrimePressed',
+			primeButton: 'bg-primary-500 hover:bg-primary-550 focus:bg-primary-600',
 			secondaryButton:
-				'bg-buttonSecondary hover:bg-buttonSecondaryHover focus:bg-buttonSecondaryPressed',
-			importantButton:
-				'bg-buttonImportant hover:bg-buttonImportantHover focus:bg-buttonImportantPressed',
+				'bg-tertiary3-500 hover:bg-tertiary3-600 focus:bg-tertiary3-650',
+			importantButton: 'bg-danger-500 hover:bg-danger-600 focus:bg-danger-650',
 			icon: '',
 		},
 		size: {
