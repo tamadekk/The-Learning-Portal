@@ -4,13 +4,14 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from 'src/lib/utils';
 
 const inputVariants = cva(
-	'ps-10 p-2.5 pl-3 bg-bgInput rounded-md  text-sm outline-none focus:border-white',
+	'ps-10 p-2.5 pl-3 bg-neutral-150 text-sm outline-none border-neutral-400 rounded-md hover:border-primary-550 focus:border-primary-550',
 	{
 		variants: {
 			variant: {
 				default: '',
-				withIcon: 'pl-10',
-				transparent: 'bg-transparent border',
+				withIcon: 'bg-neutral-200 pl-10',
+				withIconTransparent: 'bg-transparent pl-10',
+				transparent: 'focus:bg-neutral-150  border',
 			},
 			size: {
 				default: 'w-full',

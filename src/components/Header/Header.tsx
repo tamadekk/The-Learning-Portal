@@ -31,7 +31,7 @@ const Header = () => {
 					<NavBar links={desktopNavLinks} />
 				</div>
 				<div className='hidden sm:flex sm:items-center sm:absolute right-4 space-x-4'>
-					<a className='text-purpleText' href='/login'>
+					<a className='text-primary-500' href='/login'>
 						Sign in
 					</a>
 					<Link to='/join-us'>

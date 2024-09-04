@@ -8,7 +8,7 @@ const ProfileCard = () => {
 			<img src={mockedAvatar} alt='Profile Picture' />
 			<div>
 				<p className='font-bold'>John_12</p>
-				<p className='text-nonPrimeText font-normal'>John_12@gmail.com</p>
+				<p className='text-neutral-500 font-normal'>John_12@gmail.com</p>
 			</div>
 		</div>
 	);
