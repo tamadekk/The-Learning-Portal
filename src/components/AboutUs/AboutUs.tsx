@@ -6,8 +6,8 @@ import { teamMembers } from 'src/constants/AboutUs/constants';
 const AboutUs = () => {
 	return (
 		<div className='flex justify-center items-center py-14 px-4 sm:px-6 lg:px-8'>
-			<div className='flex flex-col justify-center items-center max-w-screen-md lg:max-w-screen-lg w-full'>
-				<div className='flex flex-col gap-7 mb-20 w-3/4'>
+			<div className='flex flex-col justify-center items-center w-full max-w-screen-md lg:max-w-screen-lg'>
+				<div className='flex flex-col gap-7 mb-20'>
 					<h1 className='text-5xl text-nowrap text-neutral-900 font-bold text-center'>
 						About Us
 					</h1>
@@ -24,7 +24,7 @@ const AboutUs = () => {
 					src={aboutUsPicture}
 					alt='A group of people looking at laptop'
 				/>
-				<div className='flex flex-col gap-6 items-center lg:flex-row lg:items-start lg:w-full'>
+				<div className='flex flex-col gap-6 items-center md:w-full lg:flex-row lg:items-start '>
 					<div className='lg:w-64'>
 						<h2 className='text-5xl text-center text-wrap text-neutral-900 font-bold lg:text-left lg:text-nowrap'>
 							Our Team
@@ -33,15 +33,17 @@ const AboutUs = () => {
 							Aliqua ipsum tempor aliqua eiusmod lorem ad labore culpa aliquip
 						</p>
 					</div>
-					{teamMembers.map((member, index) => (
-						<TraineeCard
-							key={index}
-							name={member.name}
-							title={member.title}
-							description={member.description}
-							image={member.image}
-						/>
-					))}
+					<div className='flex flex-col gap-6 md:flex-row md:w-full'>
+						{teamMembers.map((member, index) => (
+							<TraineeCard
+								key={index}
+								name={member.name}
+								title={member.title}
+								description={member.description}
+								image={member.image}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

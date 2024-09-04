@@ -10,7 +10,7 @@ interface TraineeCardProps {
 const TraineeCard = (props: TraineeCardProps) => {
 	return (
 		<>
-			<div className='flex flex-col w-72 text-center pt-6 pb-8 items-center bg-neutral-100 rounded-lg'>
+			<div className='flex flex-col w-full text-center pt-6 pb-8 px-3 items-center bg-neutral-100 rounded-lg'>
 				<img
 					src={props.image}
 					alt='Trainee portrait'
