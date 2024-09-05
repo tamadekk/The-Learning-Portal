@@ -20,6 +20,12 @@ import aboutUsPicture from './AboutUs/aboutUsMain.jpg';
 import JohnDoeAvatar from './AboutUs/JohnDoeAvatar.jpg';
 import SaraRoseAvatar from './AboutUs/SaraRoseAvatar.jpg';
 import JackBlackAvatar from './AboutUs/JackBlackAvatar.jpg';
+import mockedItem from './Box/mockedItem.jpg';
+import mockedItem1 from './Box/mockedItem1.jpg';
+import mockedItem2 from './Box/mockedItem2.jpg';
+import mockedItem3 from './Box/mockedItem3.jpg';
+import mockedItem4 from './Box/mockedItem4.jpg';
+import mockedItem5 from './Box/mockedItem5.jpg';
 
 export {
 	logo,
@@ -44,4 +50,10 @@ export {
 	JohnDoeAvatar,
 	SaraRoseAvatar,
 	JackBlackAvatar,
+	mockedItem,
+	mockedItem1,
+	mockedItem2,
+	mockedItem3,
+	mockedItem4,
+	mockedItem5,
 };
