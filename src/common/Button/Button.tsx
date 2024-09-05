@@ -13,7 +13,7 @@ const buttonVariants = cva('text-white rounded-md disabled:opacity-40', {
 			icon: '',
 		},
 		size: {
-			default: 'w-24 h-10',
+			default: 'w-auto px-4 h-10',
 			large: 'w-full h-10',
 		},
 	},

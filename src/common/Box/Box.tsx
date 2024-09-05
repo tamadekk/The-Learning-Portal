@@ -15,7 +15,7 @@ const Box = (props: BoxProps) => {
 	return (
 		<>
 			{props.blogs.map((item) => (
-				<div className='flex flex-col max-w-96 border border-neutral-400 rounded-lg pb-6'>
+				<div className='flex flex-col max-w-96 border shadow-sm rounded-lg pb-6'>
 					<img
 						src={item.img}
 						alt='Mocked Item'

@@ -9,19 +9,23 @@ import Footer from './components/Footer/Footer';
 import JoinUs from './components/JoinUs/JoinUs';
 import Registration from './components/RegistrationForm/Registration';
 import AboutUs from './components/AboutUs/AboutUs';
+import Blog from './components/Blog/Blog';
 
 function App() {
 	return (
 		<>
 			<Header />
-			<Routes>
-				<Route path='*' element={<Navigate to='/' />} />
-				<Route path='/' element={<Home />} />
-				<Route path='/about-us' element={<AboutUs />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/join-us' element={<JoinUs />} />
-				<Route path='/registration' element={<Registration />} />
-			</Routes>
+			<div className='flex flex-col min-h-dvh'>
+				<Routes>
+					<Route path='*' element={<Navigate to='/' />} />
+					<Route path='/' element={<Home />} />
+					<Route path='/about-us' element={<AboutUs />} />
+					<Route path='/blog' element={<Blog />} />
+					<Route path='/join-us' element={<JoinUs />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/registration' element={<Registration />} />
+				</Routes>
+			</div>
 			<Footer />
 		</>
 	);
