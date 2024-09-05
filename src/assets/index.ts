@@ -16,6 +16,10 @@ import peopleGroup1Img from './JoinUs/group-of-people-1.png';
 import peopleGroup2Img from './JoinUs/group-of-people-2.jpeg';
 import regTrainee from './Registration/regTrainee.jpg';
 import regStudent from './Registration/regStudent.jpeg';
+import aboutUsPicture from './AboutUs/aboutUsMain.jpg';
+import JohnDoeAvatar from './AboutUs/JohnDoeAvatar.jpg';
+import SaraRoseAvatar from './AboutUs/SaraRoseAvatar.jpg';
+import JackBlackAvatar from './AboutUs/JackBlackAvatar.jpg';
 
 export {
 	logo,
@@ -36,4 +40,8 @@ export {
 	peopleGroup2Img,
 	regTrainee,
 	regStudent,
+	aboutUsPicture,
+	JohnDoeAvatar,
+	SaraRoseAvatar,
+	JackBlackAvatar,
 };
