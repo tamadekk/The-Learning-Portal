@@ -1,5 +1,11 @@
 import React, { InputHTMLAttributes } from 'react';
-
+import {
+	UseFormRegister,
+	Path,
+	RegisterOptions,
+	FieldError,
+} from 'react-hook-form';
+import { IFormValues } from './types';
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from 'src/lib/utils';
 
@@ -11,7 +17,7 @@ const inputVariants = cva(
 				default: '',
 				withIcon: 'bg-neutral-200 pl-10',
 				withIconTransparent: 'bg-transparent pl-10 border',
-				transparent: 'focus:bg-neutral-150  border',
+				transparent: 'focus:bg-neutral-150 border',
 			},
 			size: {
 				default: 'w-full',
@@ -29,13 +35,14 @@ interface InputProps
 		VariantProps<typeof inputVariants> {
 	icon?: string;
 	type: string;
-	name: string;
-	id: string;
+	label?: string;
+	name: Path<IFormValues>;
 	placeHolder: string;
-	value?: string;
 	required?: boolean;
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	children?: React.ReactNode;
+	register: UseFormRegister<IFormValues>;
+	validation?: RegisterOptions<IFormValues>;
+	error?: FieldError;
 }
 
 const Input = ({ className, size, variant, ...props }: InputProps) => {
@@ -46,18 +53,29 @@ const Input = ({ className, size, variant, ...props }: InputProps) => {
 					src={props.icon}
 					alt={`${props.name} icon`}
 					className='absolute left-3'
-				/> // TODO : don't use layout style for reuseable elements
+				/>
 			)}
-			<input
-				type={props.type}
-				name={props.name}
-				id={props.id}
-				placeholder={props.placeHolder}
-				value={props.value}
-				required={props.required}
-				onChange={props.onChange}
-				className={cn(inputVariants({ variant, size, className }))}
-			/>
+			<div className='w-full'>
+				<label
+					className={cn(
+						'text-neutral-700 text-md font-bold',
+						props.error && 'text-red-600'
+					)}
+				>
+					{props.label}
+				</label>
+				<input
+					type={props.type}
+					{...props.register(props.name, props.validation)}
+					name={props.name}
+					placeholder={props.placeHolder}
+					required={props.required}
+					className={cn(
+						inputVariants({ variant, size, className }),
+						props.error && 'border-danger-500'
+					)}
+				/>
+			</div>
 			{props.children}
 		</div>
 	);
