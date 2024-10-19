@@ -1,41 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { IFormValues } from 'src/common/Input/types';
 
-import FormField from './FormField';
+import Input from 'src/common/Input/Input';
 import Selector from 'src/common/Selector/Selector';
 import Button from 'src/common/Button/Button';
 
 import { regTrainee, regStudent } from 'src/assets';
-
 import { specializations } from 'src/constants/Registration/constants';
 
 const testRole = 'Student';
 
 const Registration = () => {
-	const [formData, setFormData] = useState({
-		firstName: '',
-		lastName: '',
-		email: '',
-		specialization: '',
-	});
-	const [isSubmitting, setIsSubmitting] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isSubmitting },
+	} = useForm<IFormValues>();
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData({ ...formData, [name]: value });
+	const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+		await new Promise((resolve) => {
+			setTimeout(resolve, 1000);
+		});
+		alert(JSON.stringify(data));
 	};
 
-	const handleSpecialization = (e) => {
-		console.log(e.target.value);
-		setFormData({ ...formData, specialization: e.target.value });
-	};
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		console.log(formData);
-		setIsSubmitting(true);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		setIsSubmitting(false);
-	};
-	const displayImage = (role) => {
+	const displayImage = (role: string) => {
 		return role === 'Student' ? regStudent : regTrainee;
 	};
 
@@ -56,49 +46,61 @@ const Registration = () => {
 					/>
 					<form
 						className='flex flex-col gap-6 w-[629px] min-h-fit'
-						onSubmit={handleSubmit}
+						onSubmit={handleSubmit(onSubmit)}
 					>
-						<FormField
+						<Input
+							register={register}
 							label='First Name'
 							type='text'
 							name='firstName'
-							id='firstName'
-							placeholder='Input text'
-							value={formData.firstName}
-							onChange={handleChange}
+							placeHolder='Input text'
 							required
+							variant='transparent'
+							error={errors.firstName}
+							validation={{
+								minLength: 2,
+							}}
 						/>
-						<FormField
+
+						<Input
+							register={register}
 							label='Last Name'
 							type='text'
 							name='lastName'
-							id='lastName'
-							placeholder='Input text'
-							value={formData.lastName}
-							onChange={handleChange}
+							placeHolder='Input text'
 							required
+							variant='transparent'
+							error={errors.lastName}
+							validation={{
+								minLength: 2,
+							}}
 						/>
-						<FormField
+
+						<Input
+							register={register}
 							label='Email'
 							type='email'
 							name='email'
-							id='email'
-							placeholder='Input text'
-							value={formData.email}
-							onChange={handleChange}
+							placeHolder='Input text'
 							required
+							variant='transparent'
+							error={errors.email}
+							validation={{
+								pattern: {
+									value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+									message: 'Please enter a valid email address.',
+								},
+							}}
 						/>
 						<div>
 							<label className='text-neutral-700 text-md font-bold'>
 								Specialization
 							</label>
 							<Selector
-								id='{undefined}'
 								name='specialization'
+								register={register}
 								className='w-full'
 								options={specializations}
-								value={formData.specialization}
-								onChange={handleSpecialization}
 								required
 							/>
 						</div>

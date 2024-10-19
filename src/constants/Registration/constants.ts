@@ -1,1 +1,1 @@
-export const specializations = ['Please select', 'Java', 'PHP', 'SP1', 'SP2'];
+export const specializations = ['Java', 'PHP', 'SP1', 'SP2'];

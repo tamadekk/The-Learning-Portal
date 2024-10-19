@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { IFormValues } from 'src/common/Input/types';
 
 import ReCAPTCHA from 'react-google-recaptcha';
 import reCAPTCHAkey from '../../reCAPTCHAkey';
@@ -9,36 +11,25 @@ import Button from 'src/common/Button/Button';
 import { userIcon, padlockIcon, eyeOn, eyeOff } from '../../assets/index';
 
 const Login = () => {
-	const [form, setForm] = useState({
-		username: '',
-		password: '',
-	});
 	const [captchaCompleted, setCaptchaCompleted] = useState(false);
-	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isPasswordVisible, setPasswordVisible] = useState(false);
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		if (!captchaCompleted) {
-			alert('Please complete the captcha before submitting!');
-			return;
-		}
-		if (!(form.username && form.password)) console.log('Error!');
-		setIsSubmitting(true);
-		// TODO: submit to server
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		setIsSubmitting(false);
+	const {
+		register,
+		formState: { isSubmitting },
+		handleSubmit,
+	} = useForm<IFormValues>();
+
+	const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+		if (!captchaCompleted) return;
+		await new Promise((resolve) => {
+			setTimeout(resolve, 1000);
+		});
+		alert(JSON.stringify(data));
 	};
 
-	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setForm({
-			...form,
-			[e.target.name]: e.target.value,
-		});
-	};
 	const handleToggle = () => {
 		setPasswordVisible(!isPasswordVisible);
-		console.log(isPasswordVisible);
 	};
 
 	const handleCaptchaChange = (value: string | null) => {
@@ -46,7 +37,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className='min-h-screen flex items-center justify-center'>
+		<div className='min-h-screen flex items-center justify-center pb-32'>
 			<div className='flex flex-col items-center gap-5'>
 				<p className='text-3xl text-neutral-900 font-montserrat font-semibold'>
 					Sign in
@@ -54,8 +45,8 @@ const Login = () => {
 				<p className='text-xl text-neutral-500 font-montserrat'>Welcome back</p>
 
 				<form
-					className='flex flex-col items-center gap-3'
-					onSubmit={handleSubmit}
+					className='flex flex-col items-center gap-4'
+					onSubmit={handleSubmit(onSubmit)}
 				>
 					<div className='flex flex-col'>
 						<label className='text-sm font-semibold font-poppins'>
@@ -63,12 +54,12 @@ const Login = () => {
 						</label>
 						<Input
 							icon={userIcon}
+							register={register}
 							name='username'
 							type='text'
 							id='username'
 							placeHolder='Enter email'
 							required
-							onChange={handleInputChange}
 							variant='withIcon'
 						/>
 					</div>
@@ -78,12 +69,12 @@ const Login = () => {
 						</label>
 						<Input
 							icon={padlockIcon}
+							register={register}
 							name='password'
 							type={isPasswordVisible ? 'text' : 'password'}
 							id='password'
 							placeHolder='Enter password'
 							required
-							onChange={handleInputChange}
 							variant='withIcon'
 						>
 							<div className='absolute right-3 top-3'>
@@ -99,8 +90,8 @@ const Login = () => {
 					</div>
 					<Button
 						message='Sign in'
-						disabled={isSubmitting}
 						size='large'
+						disabled={isSubmitting}
 						variant='primeButton'
 					/>
 					<p className='text-xs text-neutral-500 font-poppins font-bold'>OR</p>
